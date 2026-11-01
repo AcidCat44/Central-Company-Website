@@ -1,17 +1,35 @@
 <html>
       <style>
         body {
-            background-color: #f0f2f5;
+            background-color: #1E1E1E;
             font-family: sans-serif;
-            color: #1E1E1E;
+            color: #f0f2f5;
         }
     </style>
   <body>
-      <audio controls>
-        <source src="Music.mp3" type="audio/mpeg" />
-        <source src="Music.ogg" type="audio/ogg" />
-        Your browser does not support the audio element.
-      </audio>
+<audio id="bg-music" autoplay loop muted>
+  <source src="music.mp3" type="audio/mpeg" />
+  <source src="music.ogg" type="audio/ogg" />
+</audio>
+
+<!-- The control button -->
+<button id="audio-toggle">🔊 Unmute</button>
+
+<script>
+  const music = document.getElementById('bg-music');
+  const button = document.getElementById('audio-toggle');
+
+  button.addEventListener('click', () => {
+    if (music.muted) {
+      music.muted = false;
+      // In case browser blocked autoplay, this forces it to play on click
+      music.play(); 
+      button.textContent = '⏸️ Mute';
+    } else {
+      music.muted = true;
+      button.textContent = '🔊 Unmute';
+    }
+  });
     <h1>Central Company Website</h1>
   </body>
 </html>
