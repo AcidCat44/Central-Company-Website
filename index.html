@@ -6,15 +6,39 @@
             color: #f0f2f5;
         }
     </style>
-  <body>
-<!-- The hidden audio player -->
+  <body> 
+    <h1>Central Company Website</h1>
+        <!-- The hidden audio player -->
 <audio id="bg-music" autoplay loop muted>
   <source src="Music.mp3" type="audio/mpeg" />
   <source src="Music.ogg" type="audio/ogg" />
 </audio>
 
-<!-- The control button -->
-<button id="audio-toggle">🔊 Unmute</button>
+<!-- Styled control button stuck to the top-right corner -->
+<button id="audio-toggle" class="corner-btn">🔊 Unmute</button>
+
+<style>
+  .corner-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999; /* Keeps it on top of all other elements */
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 14px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.2s ease;
+  }
+
+  .corner-btn:hover {
+    background-color: #555;
+  }
+</style>
 
 <script>
   const music = document.getElementById('bg-music');
@@ -23,7 +47,7 @@
   button.addEventListener('click', () => {
     if (music.muted) {
       music.muted = false;
-      music.currentTime = 0; // Rewinds the track back to 0:00
+      music.currentTime = 0; // Rewinds track to 0:00
       music.play(); 
       button.textContent = '⏸️ Mute';
     } else {
@@ -31,7 +55,7 @@
       button.textContent = '🔊 Unmute';
     }
   });
-</script>  
-    <h1>Central Company Website</h1>
+</script>
+
   </body>
 </html>
