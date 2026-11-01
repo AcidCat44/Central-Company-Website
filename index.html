@@ -7,6 +7,7 @@
         }
     </style>
   <body>
+<!-- The hidden audio player -->
 <audio id="bg-music" autoplay loop muted>
   <source src="Music.mp3" type="audio/mpeg" />
   <source src="Music.ogg" type="audio/ogg" />
@@ -22,7 +23,7 @@
   button.addEventListener('click', () => {
     if (music.muted) {
       music.muted = false;
-      // In case browser blocked autoplay, this forces it to play on click
+      music.currentTime = 0; // Rewinds the track back to 0:00
       music.play(); 
       button.textContent = '⏸️ Mute';
     } else {
@@ -30,7 +31,7 @@
       button.textContent = '🔊 Unmute';
     }
   });
-</script>   
+</script>  
     <h1>Central Company Website</h1>
   </body>
 </html>
