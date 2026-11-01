@@ -1,5 +1,6 @@
 body {
-  background-color: green;
+  background-color: #2e7d32; /* A softer, modern forest green */
+  color: #ffffff;            /* Makes text white so it's readable */
   font-family: sans-serif;
   text-align: center;
 }
